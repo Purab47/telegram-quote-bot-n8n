@@ -25,5 +25,5 @@ This project is a mini automation that scrapes top quotes from [quotes.toscrape.
 ```bash
 .
 ├── job_scraper.py          # Python script that scrapes and sends quotes
-├── n8n_workflow.json       # (Optional) Exported n8n workflow file
+├── Send_Quotes_to_Telegram.json       # (Optional) Exported n8n workflow file
 └── README.md               # Project overview and documentation
