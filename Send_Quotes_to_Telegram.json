@@ -1,0 +1,89 @@
+{
+  "name": "Send Quotes to Telegram",
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        -100,
+        0
+      ],
+      "id": "a4710ed5-526a-4114-892f-25590212a185",
+      "name": "When clicking ‘Test workflow’"
+    },
+    {
+      "parameters": {
+        "command": "\"D:\\learning domains\\PYTHON\\python.exe\" \"D:\\learning domains\\PYTHON\\VS code\\Python learning\\job_scraper.py\"\n\n"
+      },
+      "type": "n8n-nodes-base.executeCommand",
+      "typeVersion": 1,
+      "position": [
+        140,
+        0
+      ],
+      "id": "d345a3eb-5697-411f-b7cf-a959d2b10174",
+      "name": "Execute Command"
+    },
+    {
+      "parameters": {
+        "chatId": "5058786514",
+        "text": "={{$node[\"Execute Command\"].json[\"stdout\"]}}",
+        "additionalFields": {
+          "disable_web_page_preview": true
+        }
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        360,
+        60
+      ],
+      "id": "55d37fdb-5437-4901-a5fa-0b80fdbd3a4e",
+      "name": "Telegram",
+      "webhookId": "c74e7876-dccc-461d-b2e8-c578781e3213",
+      "credentials": {
+        "telegramApi": {
+          "id": "v8XUsVfvzstayuf7",
+          "name": "Telegram account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "When clicking ‘Test workflow’": {
+      "main": [
+        [
+          {
+            "node": "Execute Command",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Execute Command": {
+      "main": [
+        [
+          {
+            "node": "Telegram",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "0724bf2f-c2e1-4cd1-94f0-c871d30c0a26",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "18a70f4390d0ae303496e265f75340d7a17abbf8593cb93984e5932ecb2a2cde"
+  },
+  "id": "0igJ8dY1VqVLLv23",
+  "tags": []
+}
